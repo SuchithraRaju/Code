@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class ArmstrongBetween {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter lower limit: ");
+        int low = sc.nextInt();
+        System.out.print("Enter upper limit: ");
+        int high = sc.nextInt();
+
+        System.out.println("Armstrong numbers between " + low + " and " + high + ":");
+        for (int i = low; i <= high; i++) {
+            int num = i, sum = 0, digits = String.valueOf(i).length();
+            while (num > 0) {
+                int d = num % 10;
+                sum += Math.pow(d, digits);
+                num /= 10;
+            }
+            if (sum == i) System.out.print(i + " ");
+        }
+        sc.close();
+    }
+}
